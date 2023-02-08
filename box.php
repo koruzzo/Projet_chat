@@ -1,42 +1,29 @@
 
 <?php session_start();?>
 
-
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <?php require('template/head.php'); 
-        
-        
-        ?>
-
+        <?php require('template/head.php');?>
     </head>
     
-    <body>
-   
+    <body class="body2">
+        <div class="zone_text">
+            <?php 
+                foreach ($_SESSION['messages'] as $data) 
+                {
+                    echo  $data['pseudo'] . ' dit : ' . $data['message'] . '<br>';
+                }
+            ?>
+        </div>   
+        <form action="postMessage.php" method="post" class="formu_box">
+            <input type="text" name="message" class="barre_box" placeholder="Éditer votre message ici" /> 
+            <div class="bouton_pack">
+                <input class="bouton_box" type="submit" value="Envoyer" /> 
+                <a class="bouton_a_box" href="traitement/deconnexion.php">Déconnexion</a>
+            </div>
 
-
-        <form action="postMessage.php" method="post">
-            <input type="text" name="message" classe="message" size="80" placeholder="Éditer votre message ici" /> 
-            <input class="bouton_env" type="submit" value="Envoyer" /> 
-            <a class="bouton_deco" href="traitement/deconnexion.php">Déconnexion</a>
-        </form>
-                
-
-        <?php 
+        </form>      
         
-
-        $liste = $_SESSION['messages'];
-        
-        foreach($liste as $value) : ?>
-                <div>
-                    <h2><?= $value['pseudo'] ?></h2>
-                    <p><?= $value['message'] ?></p>
-                    <hr>
-
-                </div>
-        <?php endforeach ?>
-
-
     </body>
 </html>

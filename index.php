@@ -4,18 +4,13 @@
         <?php require('template/head.php'); ?>
     </head>
     
-    <body>
-        
-    
-            <p>Bienvenue sur le Super-Tchat</p>
-
-            <p>Insérez votre pseudo choisi:</p>    
-            <form action="postUser.php" method="post">          
-                <input type="text" name="pseudo" id="pseudo" /> 
-                <input type="submit" value="Envoyer" />                   
-            </form>
-        
-
-
+    <body class="body1">
+        <form action="postUser.php" method="post" class="formu_index">  
+            <p class="p1">Bienvenue sur le Super-Tchat</p>
+            <p  class="p2">Insérez votre pseudo choisi:</p>     
+            <input type="text" name="pseudo" id="pseudo" /> 
+            <input type="submit" value="Envoyer" class="bouton_box" />                   
+        </form>
+ 
     </body>
 </html>

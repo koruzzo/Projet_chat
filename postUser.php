@@ -2,25 +2,13 @@
 
 <?php
 
-$pseudo = $_POST['pseudo'];
-/*
-if(!empty($_SESSION['pseudo']))
-{ 
-    $_SESSION['pseudo'] = $_POST['pseudo']; 
-    header('location: box.php' );
-}
-*/
+$pseudo = isset($_POST['pseudo']) ? addslashes($_POST['pseudo']) : false;
+
+
 if($pseudo ){
     $_SESSION['login'] = $pseudo;  
 }
 
-/*
-$_SESSION[] = [
-
-        'pseudo' => $pseudo,
-        'message' => $message,
-];
-*/
 header('location: box.php' );
 
 ?>
